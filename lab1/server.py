@@ -8,8 +8,7 @@ import mimetypes
 #extrag din fisier emailul si cuvantul ales
 with open('email.txt') as fd:
     text = fd.readline()
-    email = text[0]
-    word = text[1]
+    email = text
 fd.close()
 
 #functii folosite pentru a inregistra log-urile si timpul de primire
@@ -61,9 +60,7 @@ def getSentiment(word):
     writeToLog("logs.json", response.json())
     writeTime(Tend-Tstart, "Sentiment")
     
-#clasa de initiere server    
-class Server(HTTPServer):
-    pass
+    
     
 #clasa de performat request-urile    
 class RequestHandler(BaseHTTPRequestHandler):
@@ -115,5 +112,5 @@ class RequestHandler(BaseHTTPRequestHandler):
             html = open("./index.html").read()
             
             
-server = Server(('localhost', 8080), RequestHandler)
+server = HTTPServer(('localhost', 8080), RequestHandler)
 server.serve_forever()
