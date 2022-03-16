@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "f089b446-0d6c-4fe3-9130-471d1d3c52a1",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "simply GET all books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/cloud/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"cloud",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET id = 3 (with params)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/cloud/books?id=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"cloud",
+						"books"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET id = 3 (with slash)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/cloud/books/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"cloud",
+						"books",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST a book (with params)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/cloud/books?name=Making-History&author=Richard-Cohen&pages=784&type=History",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"cloud",
+						"books"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Making-History"
+						},
+						{
+							"key": "author",
+							"value": "Richard-Cohen"
+						},
+						{
+							"key": "pages",
+							"value": "784"
+						},
+						{
+							"key": "type",
+							"value": "History"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST a book (with form data)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Testbook",
+							"type": "default"
+						},
+						{
+							"key": "author",
+							"value": "Author1",
+							"type": "default"
+						},
+						{
+							"key": "pages",
+							"value": "56",
+							"type": "default"
+						},
+						{
+							"key": "type",
+							"value": "entertainment",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/cloud/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"cloud",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT/update a book (with params)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/cloud/books?id=6&author=Richard-Cohen&pages=555",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"cloud",
+						"books"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6"
+						},
+						{
+							"key": "name",
+							"value": "Making-History",
+							"disabled": true
+						},
+						{
+							"key": "author",
+							"value": "Richard-Cohen"
+						},
+						{
+							"key": "pages",
+							"value": "555"
+						},
+						{
+							"key": "type",
+							"value": "War",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE book type (with params)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/cloud/books?type=entertainment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"cloud",
+						"books"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "8",
+							"disabled": true
+						},
+						{
+							"key": "author",
+							"value": "Richard-Cohen2222",
+							"disabled": true
+						},
+						{
+							"key": "pages",
+							"value": "555",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "entertainment"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE id = 6 (with slash)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/cloud/books/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"cloud",
+						"books",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

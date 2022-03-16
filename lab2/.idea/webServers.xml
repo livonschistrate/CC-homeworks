@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="b6268456-4455-4633-ae55-b0e30cb9227c" name="localhost" url="http://localhost/cloud">
+        <fileTransfer mountedRoot="C:\xampp\htdocs\cloud" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
