@@ -124,7 +124,38 @@ switch($request_method) {
             $response['status_code'] = 'HTTP/1.1 200 OK';
             $response['body'] = json_encode('Book with id='.$book_id.' updated.');
         } else {
-            $response = set_error(406);
+            $putdata = fopen("php://input", "r");
+            $data_from_put = '';
+            while ($data = fread($putdata, 4096))
+                $data_from_put .= $data;
+            if( $data_from_put != '' ) {
+                $input_data = json_decode($data_from_put, true);
+                if ( isset($input_data['id']) ) {
+                    $sql_update = '';
+                    if ( isset($input_data['name']) && trim($input_data['name']) != '' ) {
+                        $sql_update .= ", name='".trim( $input_data['name'] )."' ";
+                    }
+                    if ( isset($input_data['author']) && trim($input_data['author']) != '' ) {
+                        $sql_update .= ", author='".trim( $input_data['author'] )."' ";
+                    }
+                    if ( isset($input_data['pages']) && trim($input_data['pages']) != '' ) {
+                        $sql_update .= ", pages='".trim( $input_data['pages'] )."' ";
+                    }
+                    if ( isset($input_data['type']) && trim($input_data['type']) != '' ) {
+                        $sql_update .= ", type='".trim( $input_data['type'] )."' ";
+                    }
+                    if ( $sql_update != '' ) {
+                        $sql = "UPDATE books SET id=".$input_data['id']." ".$sql_update." WHERE id=".$input_data['id'].";";
+                        $db->exec( $sql );
+                    }
+                    $response['status_code'] = 'HTTP/1.1 200 OK';
+                    $response['body'] = json_encode('Book with id='.$input_data['id'].' updated.');
+                } else {
+                    $response = set_error(406);
+                }
+            } else {
+                $response = set_error(406);
+            }
         }
         break;
 

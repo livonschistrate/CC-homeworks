@@ -156,7 +156,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/cloud/books?id=6&author=Richard-Cohen&pages=555",
+					"raw": "http://localhost/cloud/books?id=6&author=Richard-Cohen&pages=555&type=War",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -185,9 +185,31 @@
 						},
 						{
 							"key": "type",
-							"value": "War",
-							"disabled": true
+							"value": "War"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT/update book (raw data - json format)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\" : 6,\r\n        \"name\" : \"Every-Name\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost/cloud/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"cloud",
+						"books"
 					]
 				}
 			},
